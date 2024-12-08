@@ -107,7 +107,7 @@ class LLMG2PModel(G2PModel):
             prompt += pr
         return prompt
     
-    def call_llm(self, text: str, base_url="https://api.openai.com", model="gpt-4o", max_attempts=10) -> str:
+    def call_llm(self, text: str, base_url="https://api.openai.com/v1", model="gpt-4o", max_attempts=10) -> str:
         from openai import OpenAI
         client = OpenAI(base_url=base_url)
         
