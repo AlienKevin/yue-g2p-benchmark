@@ -4,11 +4,13 @@ from models import (
     CantoneseG2PWModel,
     # GoogleTranslateModel,
     # FunAudioModel,
+    LLMG2PModel,
 )
 import time
 from data import prepare_data, calculate_accuracy, calculate_per
 import matplotlib.pyplot as plt
 import argparse
+import json
 
 
 if __name__ == "__main__":
@@ -19,7 +21,8 @@ if __name__ == "__main__":
     model_classes = [
         PyCantoneseModel,
         ToJyutpingModel,
-        CantoneseG2PWModel,
+        # CantoneseG2PWModel,
+        LLMG2PModel,
     ]
     model_names = []
 
@@ -69,6 +72,7 @@ if __name__ == "__main__":
             "distance": distance,
             "per": per,
             "runtime": runtime,
+            "predictions": predictions,
         }
 
     colors = [
@@ -155,3 +159,7 @@ if __name__ == "__main__":
 
     # save to runtime.png
     plt.savefig("runtime.png")
+
+    # Save results to JSON
+    with open("results.json", "w") as f:
+        json.dump(results, f, indent=4, ensure_ascii=False)

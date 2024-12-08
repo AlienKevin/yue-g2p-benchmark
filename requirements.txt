@@ -1,3 +1,4 @@
+matplotlib
 ToJypting
 pycantonese
 levenshtein
@@ -5,3 +6,5 @@ huggingface_hub
 modelscope
 --index-url https://modelscope.oss-cn-beijing.aliyuncs.com/releases/repo.html
 ttsfrd
+openai
+pyahocorasick
